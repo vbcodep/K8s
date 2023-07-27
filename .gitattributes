@@ -1,0 +1,8 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+# Force lf for these
+*.pl text eol=lf
+*.sh text eol=lf
+hosts text eol=lf
+sudoers text eol=lf
+*.yaml text=eof=lf
