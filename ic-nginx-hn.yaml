@@ -262,7 +262,7 @@ spec:
       targetPort: https
     - name: redis
       port: 6379
-      protocol: tcp
+      protocol: TCP
       targetPort : 6379
   selector:
     app.kubernetes.io/name: ingress-nginx
