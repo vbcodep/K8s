@@ -361,6 +361,9 @@ spec:
             - name: https
               containerPort: 443
               protocol: TCP
+            - name: redis
+              containerPort: 6379
+              protocol: TCP
           resources:
             requests:
               cpu: 100m
