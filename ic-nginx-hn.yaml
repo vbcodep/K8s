@@ -23,6 +23,14 @@ metadata:
   namespace: ingress-nginx
 automountServiceAccountToken: true
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx
+data:
+  6379: "default/redis72rc3:6379"
+---
 # Source: ingress-nginx/templates/controller-configmap.yaml
 apiVersion: v1
 kind: ConfigMap
@@ -314,6 +322,7 @@ spec:
             - --election-id=ingress-controller-leader
             - --controller-class=k8s.io/ingress-nginx
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
             - --watch-ingress-without-class=true
           securityContext:
             capabilities:
